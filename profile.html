@@ -11,7 +11,7 @@
     <h1 style="margin-left: 15px;">Twitter</h1>
     <nav>
         <a href="profile.html">Tweets</a>
-        <a href="profile.html" id="profile-name">Profile</a>
+        <a href="profile.html" id="nav-name">Profile</a>
         <a href="login.html" id="logout">Logout</a>
     </nav>
 </header>
@@ -36,6 +36,7 @@
         document.getElementById('profile-fullname').textContent = currentUser.fullname;
         document.getElementById('profile-country').textContent = currentUser.country;
         document.getElementById('profile-birthdate').textContent = currentUser.birthdate;
+        document.getElementById('nav-name').textContent = currentUser.fullname;
     }
 
     document.getElementById('logout').addEventListener('click', () => {
