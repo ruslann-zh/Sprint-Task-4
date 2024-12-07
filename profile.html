@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<header>
+    <h1 style="margin-left: 15px;">Twitter</h1>
+    <nav>
+        <a href="profile.html">Tweets</a>
+        <a href="profile.html">Profile</a>
+        <a href="login.html" id="logout">Logout</a>
+    </nav>
+</header>
+
+<div class="profile-container">
+    <h2>Welcome, <span id="profile-name"></span>!</h2>
+    <p>Email: <span id="profile-email"></span></p>
+    <p>Full Name: <span id="profile-fullname"></span></p>
+    <p>Country: <span id="profile-country"></span></p>
+    <p>Birthdate: <span id="profile-birthdate"></span></p>
+</div>
+
+<script>
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+
+    if (!currentUser) {
+        alert('You need to log in first!');
+        window.location.href = 'login.html';
+    } else {
+        document.getElementById('profile-name').textContent = currentUser.fullname;
+        document.getElementById('profile-email').textContent = currentUser.email;
+        document.getElementById('profile-fullname').textContent = currentUser.fullname;
+        document.getElementById('profile-country').textContent = currentUser.country;
+        document.getElementById('profile-birthdate').textContent = currentUser.birthdate;
+    }
+
+    document.getElementById('logout').addEventListener('click', () => {
+        localStorage.removeItem('currentUser');
+        alert('Logged out successfully!');
+        window.location.href = 'login.html';
+    });
+</script>
+</body>
+</html>
